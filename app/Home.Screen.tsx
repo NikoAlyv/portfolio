@@ -45,7 +45,7 @@ export const HomeScreen: React.FC<
   });
 
   const createCardAnimation = useCallback(
-    (index) => {
+    (index:any) => {
       return useAnimatedStyle(() => {
         const opacity = interpolate(
           scrollY.value,
@@ -90,7 +90,7 @@ export const HomeScreen: React.FC<
                   navigation.navigate(Routes.project, { data: item })
                 }
                 {...item}
-                style={[CommonStyles.rowReverse, styles.card]}
+                style={[ styles.card]}
               />
             </Animated.View>
           );

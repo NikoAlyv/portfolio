@@ -16,7 +16,6 @@ import { isWeb, windowHeight, windowWidth } from "@/theme/consts.styles";
 import { TypographyStyles } from "@/theme/typography";
 import { CommonStyles } from "@/theme/common.styles";
 import { Feather } from "@expo/vector-icons";
-import { normalize } from "@/theme/metrics";
 
 export const ProjectScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.project>
@@ -61,13 +60,17 @@ export const ProjectScreen: React.FC<
 
 const styles = StyleSheet.create({
   root: {
+    flex:1,
     backgroundColor: color.background,
     paddingBottom: 10,
   },
 
   image: {
-    width: isWeb ? windowWidth / 2 : windowHeight / 2,
-    height: isWeb ? windowHeight / 2 : windowHeight / 2,
+   
+      width: "100%",
+      maxWidth: 500,
+      height: 250,
+      resizeMode: "contain",
     borderRadius: 10,
     marginBottom: 20,
   },

@@ -44,7 +44,7 @@ export const Button: React.FC<IButton> = ({
       {loading ? (
         <ActivityIndicator color={color.white} />
       ) : (
-        <Text style={[TypographyStyles.playFair24, textStyle]}>{title}</Text>
+        <Text style={[TypographyStyles.playFair24,CommonStyles.textAlignCenter, textStyle]}>{title}</Text>
       )}
     </Pressable>
   );
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
     paddingVertical: normalize("vertical", 12),
     paddingHorizontal: normalize("horizontal", 24),
     borderRadius: 8,
-    alignItems: "center",
   },
   pressedButton: {
     backgroundColor: color.white,

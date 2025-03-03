@@ -1,19 +1,18 @@
 import {
   Image,
   ImageProps,
-  Linking,
   Pressable,
   StyleProp,
   StyleSheet,
   Text,
-  View,
   ViewStyle,
+  useWindowDimensions,
 } from "react-native";
 import React from "react";
 import { TypographyStyles } from "@/theme/typography";
 import { CommonStyles } from "@/theme/common.styles";
 import { normalize } from "@/theme/metrics";
-import { isWeb, windowHeight, windowWidth } from "@/theme/consts.styles";
+
 export interface ICard {
   id?: number;
   title?: string;
@@ -30,30 +29,46 @@ export const ProjectCard: React.FC<ICard> = ({
   onPress,
   style,
 }) => {
+  const { width } = useWindowDimensions();
+  const isSmallScreen = width < 768; // Mobil cihazlar üçün hədd
+
   return (
-    <Pressable onPress={onPress} style={[styles.root, style]}>
-      <Image style={[styles.image]} source={image} />
-      <View style={styles.container}>
-        <Text style={TypographyStyles.montserrat24}>{title}</Text>
-      </View>
+    <Pressable
+      onPress={onPress}
+      style={[
+        styles.root,
+        { flexDirection: isSmallScreen ? 'column-reverse' : "row" },
+        style,
+      ]}
+    >
+      <Text style={[TypographyStyles.montserrat24, styles.text]}>
+        {title}
+      </Text>
+      <Image style={styles.image} source={image} />
+
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   root: {
+    flex:1,
     marginVertical: normalize("vertical", 50),
     ...CommonStyles.alignCenterJustifyBetweenRow,
   },
   image: {
-    width: isWeb ? windowWidth / 3 : windowHeight / 3,
-    height: isWeb ? windowHeight / 3 : windowWidth / 3,
-    resizeMode: "cover",
+    flex:1/3,
+    width: "100%",
+    maxWidth: 500,
+    height: 250,
+    resizeMode: "contain",
   },
-  container: {
-    marginHorizontal: normalize("horizontal", 100),
-    gap: 10,
-    paddingVertical: normalize("vertical", 50),
-    ...CommonStyles.alignJustifyCenter,
+  text: {
+    textAlign: "center",
+    marginTop: 10, 
+    padding:80,
+
+
+    
   },
 });
