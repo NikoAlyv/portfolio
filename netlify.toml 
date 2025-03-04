@@ -1,8 +1,8 @@
 [build]
 command ="npx expo export -p web"
-publish="/build"
+publish="/dist"
 base="/"
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/Home.Screen"
   status = 200
