@@ -22,7 +22,7 @@
       "bundler": "metro",
       "favicon": "./assets/images/hilal.png"
     },
-    
+
     "plugins": [
       "expo-router",
       [
