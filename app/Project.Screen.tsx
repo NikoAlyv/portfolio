@@ -5,17 +5,17 @@ import {
   StyleSheet,
   Linking,
   ScrollView,
-} from "react-native";
-import React from "react";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { NavigationParamList } from "@/types/navigation.types";
-import { Routes } from "@/router/routes";
-import { color } from "@/theme/colors";
-import { Button } from "@/components/Button";
-import { isWeb, windowHeight, windowWidth } from "@/theme/consts.styles";
-import { TypographyStyles } from "@/theme/typography";
-import { CommonStyles } from "@/theme/common.styles";
-import { Feather } from "@expo/vector-icons";
+} from 'react-native';
+import React from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { NavigationParamList } from '@/types/navigation.types';
+import { Routes } from '@/router/routes';
+import { color } from '@/theme/colors';
+import { Button } from '@/components/Button';
+import { isWeb, windowHeight, windowWidth } from '@/theme/consts.styles';
+import { TypographyStyles } from '@/theme/typography';
+import { CommonStyles } from '@/theme/common.styles';
+import { Feather } from '@expo/vector-icons';
 
 export const ProjectScreen: React.FC<
   NativeStackScreenProps<NavigationParamList, Routes.project>
@@ -35,7 +35,7 @@ export const ProjectScreen: React.FC<
       contentContainerStyle={CommonStyles.alignJustifyCenter}
     >
       <Feather
-        onPress={() => navigation.navigate(Routes.home)}
+        onPress={() => navigation.goBack()}
         name="arrow-left-circle"
         color={color.white}
         size={30}
@@ -60,22 +60,21 @@ export const ProjectScreen: React.FC<
 
 const styles = StyleSheet.create({
   root: {
-    flex:1,
+    flex: 1,
     backgroundColor: color.background,
     paddingBottom: 10,
   },
 
   image: {
-   
-      width: "100%",
-      maxWidth: 500,
-      height: 250,
-      resizeMode: "contain",
+    width: '100%',
+    maxWidth: 500,
+    height: 250,
+    resizeMode: 'contain',
     borderRadius: 10,
     marginBottom: 20,
   },
   icon: {
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
     padding: 20,
   },
   content: {
